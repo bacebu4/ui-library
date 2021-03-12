@@ -38,5 +38,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
 };
