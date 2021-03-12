@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bacebu4/ui-library#readme",
   "scripts": {
+    "gen": "tsc src/*.tsx  --module AMD --jsx react --emitDeclarationOnly --moduleResolution node --declaration --outFile index.d.ts",
     "clean": "rimraf lib es",
     "build:cjs": "babel src --out-dir lib --extensions \".ts,.tsx\"",
     "build:es": "cross-env BABEL_ENV=jsnext babel src --out-dir es --extensions \".ts,.tsx\"",
