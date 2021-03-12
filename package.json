@@ -1,6 +1,6 @@
 {
   "name": "@bacebu4/ui-library",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -18,12 +18,13 @@
   },
   "homepage": "https://github.com/bacebu4/ui-library#readme",
   "scripts": {
-    "clean": "rimraf lib es dist",
+    "clean": "rimraf lib es",
     "build:cjs": "babel src --out-dir lib --extensions \".ts,.tsx\"",
     "build:es": "cross-env BABEL_ENV=jsnext babel src --out-dir es --extensions \".ts,.tsx\"",
     "test": "test",
     "dev": "webpack serve --mode development --open --hot",
-    "build": "webpack --mode production --progress"
+    "build:wp": "webpack --mode production --progress",
+    "build": "npm run clean && npm run build:cjs && npm run build:es"
   },
   "author": "",
   "license": "MIT",

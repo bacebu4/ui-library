@@ -1,2 +1,8 @@
 example
 node_modules
+src
+.editorconfig
+.eslintrc.js
+.babelrc
+tsconfig.json
+webpack.config.js

@@ -1,3 +1,4 @@
-import { BaceButton } from "./BaceButton";
+import BaceButton from "./BaceButton";
+import BaceInput from "./BaceInput";
 
-export { BaceButton };
+export { BaceButton, BaceInput };

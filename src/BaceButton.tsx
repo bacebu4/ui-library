@@ -4,7 +4,7 @@ type BaceButtonProps = {
   isSolid?: boolean;
 };
 
-export const BaceButton = styled.button<BaceButtonProps>`
+const BaceButton = styled.button<BaceButtonProps>`
   color: ${(props) => (props.isSolid ? "#fff" : "#6A63DD")};
   background-color: ${(props) => (props.isSolid ? "#6A63DD" : "#6A63DD1a")};
   flex: 1;
@@ -15,3 +15,4 @@ export const BaceButton = styled.button<BaceButtonProps>`
   font-weight: 600;
   cursor: pointer;
 `;
+export default BaceButton;
