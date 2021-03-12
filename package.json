@@ -1,6 +1,6 @@
 {
   "name": "@bacebu4/ui-library",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -64,5 +64,6 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  }
+  },
+  "types": "index.d.ts"
 }
