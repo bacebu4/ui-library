@@ -5,14 +5,14 @@ import userEvent from "@testing-library/user-event";
 import { BaceInput } from "../src/index";
 
 describe("BaceInput", () => {
-  test("has placeholder", () => {
+  it("has placeholder", () => {
     const SAMPLE_PLACEHOLDER = "sample placeholder";
     render(<BaceInput placeholder={SAMPLE_PLACEHOLDER} />);
 
     expect(screen.getByPlaceholderText(SAMPLE_PLACEHOLDER)).toBeInTheDocument();
   });
 
-  test("calls the onChange callback handler", async () => {
+  it("calls the onChange callback handler", async () => {
     const ENTERED_TEXT = "JavaScript";
     const onChange = jest.fn();
 
@@ -23,7 +23,7 @@ describe("BaceInput", () => {
     expect(onChange).toHaveBeenCalledTimes(ENTERED_TEXT.length);
   });
 
-  test("displays entered value", async () => {
+  it("displays entered value", async () => {
     const ENTERED_TEXT = "JavaScript";
     render(<BaceInput />);
 
