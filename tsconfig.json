@@ -6,6 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "./",
+    "paths": {
+      "@ui-library/*": ["src/*"],
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,6 +26,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "example/src"
-  ]
+    "example/src", "src"
+  ],
 }
