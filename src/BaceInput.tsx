@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BaceInput = styled.input`
-  color: #a4a2c1;
+  color: #343434;
   background-color: #a4a2c11a;
   flex: 1;
   font-family: inherit;
