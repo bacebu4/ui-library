@@ -1,42 +1,47 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
 import { BaceButton } from "../src/index";
 
-let container = null;
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("BaceButton", () => {
+  it("displays text", () => {
+    const SAMPLE_TEXT = "sample text";
+    render(<BaceButton>{SAMPLE_TEXT}</BaceButton>);
 
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-it("trigger onClick prop", () => {
-  const onClick = jest.fn();
-  act(() => {
-    render(<BaceButton onClick={onClick}>Hello</BaceButton>, container);
+    expect(screen.getByText(SAMPLE_TEXT)).toBeInTheDocument();
   });
 
-  const button = document.querySelector("button");
-  expect(button.innerHTML).toBe("Hello");
+  it("calls the onChange callback handler", async () => {
+    const SAMPLE_TEXT = "sample text";
 
-  act(() => {
-    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    const onClick = jest.fn();
+
+    render(<BaceButton onClick={onClick}>{SAMPLE_TEXT}</BaceButton>);
+
+    await userEvent.click(screen.getByRole("button"));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+
+    await userEvent.click(screen.getByRole("button"));
+    await userEvent.click(screen.getByRole("button"));
+
+    expect(onClick).toHaveBeenCalledTimes(3);
   });
 
-  expect(onClick).toHaveBeenCalledTimes(1);
-  expect(button.innerHTML).toBe("Hello");
+  it("is not clickable when disabled", async () => {
+    const SAMPLE_TEXT = "sample text";
 
-  act(() => {
-    for (let i = 0; i < 5; i++) {
-      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    }
+    const onClick = jest.fn();
+
+    render(
+      <BaceButton disabled onClick={onClick}>
+        {SAMPLE_TEXT}
+      </BaceButton>
+    );
+
+    await userEvent.click(screen.getByRole("button"));
+
+    expect(onClick).toHaveBeenCalledTimes(0);
   });
-
-  expect(onClick).toHaveBeenCalledTimes(6);
-  expect(button.innerHTML).toBe("Hello");
 });
