@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import { BaceInput } from "../src/index";
@@ -30,5 +31,10 @@ describe("BaceInput", () => {
     await userEvent.type(screen.getByRole("textbox"), ENTERED_TEXT);
 
     expect(await screen.findByDisplayValue("JavaScript")).toBeInTheDocument();
+  });
+
+  it("matches the snapshot", () => {
+    const tree = renderer.create(<BaceInput />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

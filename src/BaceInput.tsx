@@ -12,19 +12,8 @@ const BaceInput = styled.input`
   outline: 0;
 
   ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #a4a2c1;
-    opacity: 1; /* Firefox */
-  }
-
-  :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #a4a2c1;
-  }
-
-  ::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #a4a2c1;
+    opacity: 1;
   }
 `;
 
